@@ -35,18 +35,21 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
    const {Email,Password}=req.body
-   console.log(Email,Password)
+  // console.log(Email,Password)
     try{
         let data=await UserModel.findOne({Email:Email})
+        //console.log(data)
         if(data){
             bcrypt.compare(Password,data.Password).then(async function(result) {
                if(result){
-                let token = jwt.sign({ UserId: data._id }, 'ajio');
-              // await UserModel.findByIdAndUpdate({_id:data._id},{is_active:true})
-                res.send(token)
+               
+                let token = jwt.sign({ UserID: data._id }, 'ajio');
+               let UpData=await UserModel.findByIdAndUpdate({_id:data._id},{is_Active:true})
+               console.log("dataaa",UpData)
+                
                 res.send({"msg":"Login Successfull","token":token})
                }else{
-                res.send({"msg":"Login Successfull","token":token})
+                res.send({"msg":"Wrong Credentials"})
                }
              });
         }else{

@@ -7,7 +7,7 @@ const UserSchema=mongoose.Schema({
     Mobile:{required:true,type:Number},
     Password:{required:true,type:String},
     ConfirmPassword:{required:true,type:String},
-    is_Active:Boolean
+    is_Active:{required:true,type:Boolean}
 },{
     versionKey:false
 })
