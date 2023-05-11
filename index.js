@@ -5,10 +5,15 @@ const { connection } = require('./config/db')
 const { UserModel } = require('./model/UserModel')
 const bcrypt = require(`bcrypt`)
 const jwt=require(`jsonwebtoken`)
+const { AdminRouter } = require('./routes/AdminRoutes')
+const { ProductRouter } = require('./routes/ProductRoutes')
+const { auth } = require('./middleware/auth')
 const app = express()
 app.use(express.json())
-
-
+app.use("/admin",auth)
+app.use("/admin",AdminRouter)
+ app.use("/product",auth)
+app.use("/product",ProductRouter)
 app.get("/", async (req, res) => {
     res.send(`WelCome to The Clone of AJIO`)
 })
