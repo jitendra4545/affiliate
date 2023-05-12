@@ -9,7 +9,8 @@ const AdminSchema=mongoose.Schema({
     is_Login:Boolean
    
 },{
-    versionKey:false
+    versionKey:false,
+    timestamps:true
 })
 
 const AdminModel=mongoose.model('admin',AdminSchema)

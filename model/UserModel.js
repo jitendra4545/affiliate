@@ -9,7 +9,8 @@ const UserSchema=mongoose.Schema({
     ConfirmPassword:{required:true,type:String},
     is_Active:{required:true,type:Boolean}
 },{
-    versionKey:false
+    versionKey:false,
+    timestamps:true
 })
 
 

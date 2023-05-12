@@ -14,7 +14,8 @@ const ProductSchema=mongoose.Schema({
     Rating:{required:true,type:Number},
     UserID:String
 },{
-    versionKey:false
+    versionKey:false,
+    timestamps:true
 })
 
 
