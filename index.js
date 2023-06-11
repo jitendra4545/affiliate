@@ -20,6 +20,19 @@ app.get("/", async (req, res) => {
     res.send(`WelCome to The Clone of AJIO`)
 })
 
+app.get("/alluser",async(req,res)=>{
+    
+    try{
+        let AllData=await UserModel.find()
+        res.send(AllData)
+    }catch(err){
+
+    }
+})
+
+
+
+
 app.post("/register", async (req, res) => {
     let data = req.body
     let { Password, ConfirmPassword } = data
@@ -68,6 +81,17 @@ app.post("/login", async (req, res) => {
     }
 })
 
+
+app.patch("/logout",auth,async(req,res)=>{
+  let id=req.body.UserID
+ console.log(id)
+    try{
+           let data=await UserModel.findByIdAndUpdate({_id:id},{"is_Active":false})
+           res.send({"msg":"Your account is logged out"})
+    }catch(err){
+        res.send({"msg":"somthing went wrong! cannot logout Account","error":err.message})
+    }
+})
 
 
 //try{}catch(err){}
