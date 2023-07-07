@@ -30,7 +30,14 @@ app.get("/alluser",async(req,res)=>{
     }
 })
 
+app.post("/homepage",async(req,res)=>{
+    let data=req.body
+    try{
+          
+    }catch(err){
 
+    }
+})
 
 
 app.post("/register", async (req, res) => {

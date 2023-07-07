@@ -5,6 +5,17 @@ const { ProductModel } = require('../model/ProductsModel')
 
 const ProductRouter=express.Router()
 
+ProductRouter.post("/insertmany",async(req,res)=>{
+    let data=req.body
+    console.log("inserMany",data)
+    try{
+
+    }catch(err){
+res.send({"msg":"somthing went wrong! cannot add the product","error":err.message})
+    }
+})
+
+
 ProductRouter.post("/add",async(req,res)=>{
    // console.log(req.body.userID)
  let data=req.body
