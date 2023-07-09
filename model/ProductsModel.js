@@ -2,16 +2,17 @@ const mongoose=require('mongoose')
 
 
 const ProductSchema=mongoose.Schema({
-    Brand:{required:true,type:String},
-    Quantity:{required:true,type:Number},
-    Type:{required:true,type:String},
-    Title:{required:true,type:String},
-    StrikePrice:{required:true,type:Number},
-    DiscountPrice:{required:true,type:Number},
-    Image:{required:true,type:String},
-    Size:{required:true,type:String},
-    Discount:{required:true,type:String},
-    Rating:{required:true,type:Number},
+    category:{type:String},
+    Quantity:{type:Number},
+    subtitle:{type:String},
+    title:{type:String},
+    strike_price:{type:Number},
+    discounted_price:{type:Number},
+    images:{type:Array},
+    size:{type:Array},
+    discount:{type:String},
+    rating:{type:Number},
+    rating_count:{type:String},
     UserID:String
 },{
     versionKey:false,
