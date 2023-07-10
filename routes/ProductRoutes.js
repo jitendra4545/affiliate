@@ -9,8 +9,8 @@ ProductRouter.post("/insertmany", async (req, res) => {
     let data = req.body
     console.log("inserMany", data)
     try {
-        let newData = new ProductModel(data)
-        await newData.save()
+       
+        await ProductModel.insertMany(data)
         res.send({ "msg": "Product has been added successfully" })
     } catch (err) {
         res.send({ "msg": "somthing went wrong! cannot add the product", "error": err.message })
@@ -35,7 +35,7 @@ ProductRouter.get("/", async (req, res) => {
     let id = req.body.UserID
     console.log(id)
     try {
-        let newData = await ProductModel.find({ UserID: id })
+        let newData = await ProductModel.find()
         res.send(newData)
     } catch (err) {
         res.send({ "msg": "cannot get products", "error": err.message })
